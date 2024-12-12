@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Upcoming Task</h1>
+
+{% for i in task %}
+
+<p>{{i.taskName}}</p>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Task Management System</h1>
+        
+        <div class="stats">
+            <div class="stat">
+                <h2>Upcoming Tasks</h2>
+                <p>Count: {{ upcoming_task_count }}</p>
+            </div>
+            <div class="stat">
+                <h2>Completed Tasks</h2>
+                <p>Count: {{ Completed_task_count }}</p>
+            </div>
+        </div>
+
+        <div class="task-list">
+            <h2>Upcoming Tasks</h2>
+            <ul>
+                {% for task in task %}
+                    <li>
+                        <h3>{{ task.title }}</h3>
+                        <p>Status: {{ task.status }}</p>
+                        <p>Due Date: {{ task.due_date }}</p>
+                    </li>
+                {% empty %}
+                    <p>No upcoming tasks.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endfor %}
+
+{% endblock body %}
